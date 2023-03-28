@@ -13,14 +13,14 @@ mongoose.connect('mongodb://127.0.0.1:27017/QLXH')
 app.get('/', async (req, res) => {
     let xe = await xeHoi.find({});
     console.log(xe)
-    res.send(xe)
+    res.json(xe)
 }
 )
 
 app.get("/addXe" , async (req,res) =>{
     let kq = await xeHoi.insertMany([{
-        ten:"Mazda",
-        nam:2019,
+        ten:"MEC",
+        nam:2020,
         giaBan:3000
     }])
     console.log(kq)
@@ -30,14 +30,14 @@ app.get("/addXe" , async (req,res) =>{
 })
 
 app.get("/deleteXe" , async (req,res) =>{
-     await xeHoi.findByIdAndDelete({_id:"64226550f0b556d755da1753"})
+     await xeHoi.findByIdAndDelete({_id:"64235cee0bb3a544283d38e0"})
      let xe = await xeHoi.find({});
      console.log(xe)
      res.send(xe)
 })
 
 app.get("/updateXe" , async (req , res) =>{
-    await xeHoi.updateOne({_id:"64226550f0b556d755da1753"}, {$set:{ten:"lop"}} )
+    await xeHoi.updateOne({_id:"64235c08cc5ad792421c08c9"}, {$set:{ten:"TOYOTA"}} )
     let xe = await xeHoi.find({});
     console.log(xe)
     res.send(xe)
