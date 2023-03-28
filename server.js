@@ -5,13 +5,13 @@ const port = 8080;
 const app = express()
 mongoose.connect('mongodb://127.0.0.1:27017/QLXH')
     .then(function () {
-        console.log("connection established")
+        console.log("Connect successfully")
     })
     .catch(function (err) {
-        console.log("connection error", + err)
+        console.log("Connect successfully", + err)
     })
 app.get('/', async (req, res) => {
-    let xe = await xeHoi.find({nam: 2000 , giaBan:200.5});
+    let xe = await xeHoi.find({});
     console.log(xe)
     res.send(xe)
 }
